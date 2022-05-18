@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piscina</title>
+</head>
+<body>
+    <h1>Calcule o orçamento da sua Piscina:</h1>
+    <label>Nome</label>
+    <input type="text" id="nome"> 
+    <br><br>
+    <label>Largura</label>
+    <input type="text" id="largura">
+    <br><br>
+    <label>Comprimento</label>
+    <input type="text" id="comprimento">
+    <br><br>
+    <label>Profundidade</label>
+    <input type="text" id="profundidade">
+    <br><br>
+    <label>Escolha o tipo de revestimento:</label>
+    <select name="revestimento" id="revestimento"> 
+        <option value="tipoA">Tipo A</option>
+        <option value="tipoB">Tipo B</option>
+        <option value="tipoC">Tipo C</option>
+    </select>
+    <br><br>
+    <button onclick="calcular()">Calcular</button>
+
+    <script>
+        function calcular() {
+            var nome = document.getElementById("nome").value;
+            var largura = document.getElementById("largura").value;
+            var comprimento = document.getElementById("comprimento").value;
+            var profundidade = document.getElementById("profundidade").value;
+            var revestimento = document.getElementById("revestimento").value;
+            var litros = (largura * comprimento * profundidade * 1000);
+            var qtderevestimento = ((2 * comprimento * profundidade) + (2 * largura * profundidade) + (comprimento * largura));
+            var caixarevestimento = (qtderevestimento / 2);
+            var revtipoA = 500;
+            var revtipoB = 300;
+            var revtipoC = 150;
+            var argamassa = (qtderevestimento * 2);
+            var valorargamassa = ((qtderevestimento * 2)*2);
+            var sacoargamassa = (qtderevestimento/10)
+            var maodeobra = (500 * qtderevestimento)
+
+            if (revestimento == "tipoA") {
+                document.write("Olá " + nome + ". <br>Sua piscina será de " + litros + "litros" + ". <br>Você precisará de " + argamassa + "kg de argamassa, " + (Math.ceil(sacoargamassa)) + " sacos de 20kg.<br>Você precisará de " + qtderevestimento + "m² de revestimento. <br> Valor Total:<br> Argamassa: R$ " + valorargamassa + "<br> Revestimento R$ " + (revtipoA * qtderevestimento) + "<br> Mão de Obra R$ " + maodeobra + "<br> Quantidade de Caixas de revestimento: " + (Math.ceil(caixarevestimento)) + " caixas <br> Valor Total da Obra: R$" + (valorargamassa + maodeobra + (qtderevestimento * revtipoA)));
+            }
+            else if (revestimento == "tipoB") {
+                document.write("Olá " + nome + ". <br>Sua piscina será de " + litros + "litros" + ". <br>Você precisará de " + argamassa + "kg de argamassa, " + (Math.ceil(sacoargamassa)) + " sacos de 20kg.<br>Você precisará de " + qtderevestimento + "m² de revestimento. <br> Valor Total:<br> Argamassa: R$ " + valorargamassa + "<br> Revestimento R$ " + (revtipoB * qtderevestimento) + "<br> Mão de Obra R$ " + maodeobra + "<br> Quantidade de Caixas de revestimento: " + (Math.ceil(caixarevestimento)) + " caixas <br> Valor Total da Obra: R$" + (valorargamassa + maodeobra + (qtderevestimento * revtipoB)));
+            }
+            else {
+                document.write("Olá " + nome + ". <br>Sua piscina será de " + litros + "litros" + ". <br>Você precisará de " + argamassa + "kg de argamassa, " + (Math.ceil(sacoargamassa)) + " sacos de 20kg.<br>Você precisará de " + qtderevestimento + "m² de revestimento. <br> Valor Total:<br> Argamassa: R$ " + valorargamassa + "<br> Revestimento R$ " + (revtipoC * qtderevestimento) + "<br> Mão de Obra R$ " + maodeobra + "<br> Quantidade de Caixas de revestimento: " + (Math.ceil(caixarevestimento)) + " caixas <br> Valor Total da Obra: R$" + (valorargamassa + maodeobra + (qtderevestimento * revtipoC)));
+            }
+        }
+        
+    </script>
+        
+
+</body>
+</html>
